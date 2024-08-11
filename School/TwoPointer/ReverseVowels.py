@@ -1,24 +1,35 @@
-def reverse_vowels(str):
+def reverse_vowels(s):
   left = 0
-  right = len(str) - 1
+  right = len(s) - 1
   vowels = "aeiouAEIOU"
-  str = list(str)
+  ls = list(s)
   
   while left < right:
-    if str[left] in vowels and str[right] in vowels:
-      str[left],str[right] = str[right],str[left]
+    if ls[left] in vowels and ls[right] in vowels:
+      ls[left],ls[right] = ls[right],ls[left]
       right -= 1
       left += 1
-    elif str[left] in vowels:
+    elif ls[left] in vowels:
       right -= 1
     
-    elif str[right] in vowels:
+    elif ls[right] in vowels:
       left += 1
     
     else:
       left += 1
       right -= 1
   
-  return "".join(str)
+  return "".join(ls)
 
-print(reverse_vowels("practice"))
+def main():
+  try:
+    s = input("Enter a string : ")
+    res = reverse_vowels(s)
+    print(res)
+  
+  except Exception as e:
+    print(e)
+    
+    
+if __name__ == "__main__":
+  main()
